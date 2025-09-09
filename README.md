@@ -86,6 +86,8 @@ data/
 ## Citing
 If you use this code please consider to cite the following paper since this coded was developed during thus study:
 
+Horsak, B., Simonlehner, M., Quehenberger, V., Dumphart, B., Slijepčević, D., Kranzl, A., 2025. A gait lab in your pocket? Accuracy and reliability of monocular smartphone-based markerless 3D gait analysis in pathological gait. Gait & Posture, ESMAC 2025 Abstract 121, 91–92. https://doi.org/10.1016/j.gaitpost.2025.07.102
+
 @article{horsakGaitLabYour2025,
   title = {A Gait Lab in Your Pocket? {{Accuracy}} and Reliability of Monocular Smartphone-Based Markerless {{3D}} Gait Analysis in Pathological Gait},
   shorttitle = {A Gait Lab in Your Pocket?},
@@ -103,6 +105,8 @@ If you use this code please consider to cite the following paper since this code
 
 ## SMPL Reference
 The code was based on output SMPL/OBJ files using CameraHMR: 
+
+Patel, P., Black, M.J., 2024. CameraHMR: Aligning People with Perspective. https://doi.org/10.48550/arXiv.2411.08128
 
 @misc{patelCameraHMRAligningPeople2024,
   title = {{{CameraHMR}}: {{Aligning People}} with {{Perspective}}},
