@@ -8,7 +8,7 @@ The script searches through a given folder hierarchy, extracts marker positions 
 
 ## Features  
 - Is compatible with **OpenCap folder structure**.  
-- Supports a **user-defined folder tag** (e.g., `CameraHMR`, etc.).  
+- Looks for  a **user-defined folder** (e.g., `CameraHMR`, etc.).  
 - Recursively searches subfolders for `.obj` files.  
 - Extracts marker positions using predefined **SMPL vertex IDs**.  
 - Automatically saves results to `MarkerData_<tag>` folders, preserving the folder hierarchy.  
@@ -16,7 +16,8 @@ The script searches through a given folder hierarchy, extracts marker positions 
 ---
 
 ## Requirements  
-- Python 3.8+  
+- Python 3.8+
+- It expects the *.obj files to be consecutively numbered *_1.obj, *_2.obj, etc. (see data example)
 - The following Python packages:  
   ```bash
   pip install numpy

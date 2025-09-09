@@ -9,13 +9,13 @@ Script to process data recorded with OpenCap and stored using the OpenCap
 folder structure. 
 
 The script searches the specified root directory for all folders matching 
-a user-defined search tag (e.g., "CameraHMR"). Within each matching folder, 
+a user-defined folder (e.g., "CameraHMR"). Within each matching folder, 
 it recursively looks for subfolders containing SMPL output files (*.obj). 
 
 For each such subfolder, the script:
     - Extracts marker positions from a series of *.obj files using predefined vertex IDs.
     - Saves the results as a TRC file in a corresponding output folder named 
-      "MarkerData_<searchTag>" (e.g., "MarkerData_CameraHMR"), located at the 
+      "MarkerData_<user-defined folder>" (e.g., "MarkerData_CameraHMR"), located at the 
       same hierarchy level as the original search-tag folder.
 
 User Settings:
@@ -100,66 +100,3 @@ for tagged_folder in tagged_folders:
             
             except Exception as e:
                 print(f">>> Error processing folder {subdir}: {e}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Set frame rate with which the obj files were created.
-frame_rate = 60  # Adjust as needed
-
-# Set root folder containing all subfolders of interest.
-root_folder = r".\data"
-
-# %% Find and process all CameraHMR folders and their subdirectories with OBJ files.
-
-# Find all folders that contain a subfolder named "CameraHMR"
-cameraHMR_folders = utils.find_marker_data_folders(root_folder, 'CameraHMR')
-
-# Process each found CameraHMR folder.
-for cameraHMR_folder in cameraHMR_folders:
-    print(f"\nProcessing CameraHMR folder: {cameraHMR_folder}")
-    
-    # Walk through all subdirectories of the CameraHMR folder.
-    for subdir, dirs, files in os.walk(cameraHMR_folder):
-        
-        # Check if the subdirectory contains any .obj files.
-        obj_files = [f for f in files if f.endswith('.obj')]
-        
-        if obj_files:
-            print(f"  Found subfolder with OBJ files: {subdir}")
-            try:
-                # Extract marker data from this subfolder.
-                marker_positions, output_filename = utils.extract_vertex_timeseries(subdir, initial_marker_vertices)
-                
-                # Remove the last subfolder from the path.
-                parent_dir = os.path.dirname(subdir)
-
-                # Convert the path into parts and replace only the exact match of "CameraHMR"
-                path_parts = parent_dir.split(os.sep)
-                for i, part in enumerate(path_parts):
-                    if part == "CameraHMR":  # Exact match check
-                        path_parts[i] = "MarkerData_CameraHMR"
-                        break  # Stop after the first replacement
-                
-                # Rebuild the path
-                output_folder = os.sep.join(path_parts)
-
-                utils.ensure_folder_exists(output_folder)
-                output_file = os.path.join(output_folder, output_filename + '.trc')
-                print(f"    Saving TRC file to: {output_file}")
-                utils.save_to_trc(initial_marker_vertices, marker_positions, frame_rate, output_file)
-            
-            except Exception as e:
-                print(f"    Error processing folder {subdir}: {e}")
