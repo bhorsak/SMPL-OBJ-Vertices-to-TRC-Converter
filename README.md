@@ -7,7 +7,7 @@ The script searches through a given folder hierarchy, extracts marker positions 
 ---
 
 ## Features  
-- Works with **OpenCap folder structure**.  
+- Is compatible with **OpenCap folder structure**.  
 - Supports a **user-defined folder tag** (e.g., `CameraHMR`, etc.).  
 - Recursively searches subfolders for `.obj` files.  
 - Extracts marker positions using predefined **SMPL vertex IDs**.  
@@ -81,6 +81,24 @@ data/
 ## Author  
 - **Brian Horsak** – brian.horsak@fhstp.ac.at  
 - Updated by ChatGPT, 03/2025
+
+
+## Citing
+If you use this code please consider to cite the following paper since this coded was developed during thus study:
+
+@article{horsakGaitLabYour2025,
+  title = {A Gait Lab in Your Pocket? {{Accuracy}} and Reliability of Monocular Smartphone-Based Markerless {{3D}} Gait Analysis in Pathological Gait},
+  shorttitle = {A Gait Lab in Your Pocket?},
+  author = {Horsak, Brian and Simonlehner, Mark and Quehenberger, Viktoria and Dumphart, Bernhard and Slijep{\v c}evi{\'c}, Djordje and Kranzl, Andreas},
+  year = {2025},
+  journal = {Gait \& Posture},
+  series = {{{ESMAC}} 2025 {{Abstract}}},
+  volume = {121},
+  pages = {91--92},
+  issn = {0966-6362},
+  doi = {10.1016/j.gaitpost.2025.07.102}
+}
+
 
 
 ## SMPL Reference
