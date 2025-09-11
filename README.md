@@ -1,6 +1,6 @@
 # SMPL Vertices to TRC Converter  
 
-This repository provides a Python script to convert **SMPL mesh outputs** (from CameraHMR, see References, or similar) into **trc files** for use in biomechanics and motion analysis software (e.g., OpenSim).  
+This repository provides a Python script to convert **SMPL mesh outputs** (e.g. from CameraHMR, see References, or similar) into **trc files** for use in biomechanics and motion analysis software (e.g., OpenSim).  
 
 The script searches through a given folder hierarchy, extracts marker positions from `.obj` files using predefined vertex IDs, and writes the results into TRC files.  
 
@@ -22,12 +22,6 @@ The script searches through a given folder hierarchy, extracts marker positions 
   ```bash
   pip install numpy
   ```
-- A custom `utils.py` file providing the following functions:  
-  - `find_marker_data_folders(root_folder: str, search_tag: str) -> list[str]`  
-  - `extract_vertex_timeseries(folder: str, marker_vertices: dict) -> (dict, str)`  
-  - `ensure_folder_exists(path: str)`  
-  - `save_to_trc(marker_vertices: dict, marker_positions: dict, frame_rate: int, output_file: str)`  
-
 ---
 
 ## User Settings  
@@ -37,7 +31,7 @@ Inside the script you must set the following parameters:
 - **`initial_marker_vertices`**: Dictionary mapping marker names (e.g., `RASI`, `LASI`) to SMPL vertex IDs.  
 - **`frame_rate`**: Frame rate at which the `.obj` files were generated.  
 - **`root_folder`**: Path to the root folder containing the OpenCap data.  
-- **`search_tag`**: The folder tag to search for (e.g., `"CameraHMR"`).  
+- **`search_tag`**: The folder to search for (e.g., `"CameraHMR"`).  
 
 Example configuration in the script:  
 ```python
@@ -85,7 +79,7 @@ data/
 
 
 ## Citing
-If you use this code please consider to cite the following paper since this coded was developed during thus study:
+If you use this code please consider to cite the following paper since this code was developed during this study:
 
 Horsak, B., Simonlehner, M., Quehenberger, V., Dumphart, B., Slijepčević, D., Kranzl, A., 2025. A gait lab in your pocket? Accuracy and reliability of monocular smartphone-based markerless 3D gait analysis in pathological gait. Gait & Posture, ESMAC 2025 Abstract 121, 91–92. https://doi.org/10.1016/j.gaitpost.2025.07.102
 
